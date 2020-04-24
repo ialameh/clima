@@ -26,8 +26,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   }
 
-  //String url = ';
-
   @override
   Widget build(BuildContext context) {
     //getURLInformation();
