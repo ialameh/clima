@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:clima/screens/location.dart';
+import 'package:clima/screens/weather_by_location.dart';
+import 'package:http/http.dart';
+
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -6,17 +10,30 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  Location currentLocation = new Location();
+
+  @override
+  void initState() {
+    super.initState();
+
+    
+  }
+  void getLocation() async {
+    Location location = Location();
+    await location.getCurrentLocation();
+    WeatherByLocation wbl = WeatherByLocation();
+    wbl.getURLInformation();
+
+  }
+
+  //String url = ';
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            //Get the current location
-          },
-          child: Text('Get Location'),
-        ),
-      ),
-    );
+    //getURLInformation();
+    print('reloaded');
+    getLocation();
+
+    return Scaffold();
   }
 }
